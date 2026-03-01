@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/* Fonts - Consolidated Import for better performance */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;700;800&family=Bebas+Neue&family=DM+Sans:wght@400;700;800&family=Exo+2:wght@400;700;800&family=Oswald:wght@400;700&family=Rajdhani:wght@400;700&family=Syne:wght@400;600;700;800&family=Syne+Mono&family=Urbanist:wght@400;700;800&display=swap');
+
+/* Cabinet Grotesk needs to be imported from Fontshare CDN */
+@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,500,700,400&display=swap');
+
+@theme {
+  --color-background: #F2EDE4;
+  --color-foreground: #0A0A0A;
+  --color-sidebar: #0A0A0A;
+  --color-accent-red: #E8360D;
+  --color-accent-blue: #0047FF;
+  --color-grey: #8A8480;
+  --font-display: "Syne", sans-serif;
+  --font-mono: "Syne Mono", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground min-h-screen font-display overflow-x-hidden;
+    font-family: "Syne", sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display font-extrabold uppercase tracking-tight;
+    font-family: "Syne", sans-serif;
+  }
+}
+
+@layer utilities {
+  .swiss-border {
+    @apply border-b-2 border-foreground;
+  }
+  
+  .swiss-box {
+    @apply border-2 border-foreground bg-background;
+  }
+
+  .text-outline {
+    -webkit-text-stroke: 1px currentColor;
+    color: transparent;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  background: var(--color-background);
+  border-left: 2px solid var(--color-foreground);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-foreground);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-red);
+}
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: fadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
