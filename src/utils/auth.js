@@ -1,4 +1,6 @@
-const REDIRECT_URI = "http://127.0.0.1:5173/callback";
+const REDIRECT_URI = import.meta.env.PROD 
+    ? "https://chpkc.github.io/MOOD/callback" 
+    : "http://127.0.0.1:5173/callback";
 
 export async function redirectToAuthCodeFlow(clientId) {
     const verifier = generateCodeVerifier(128);
