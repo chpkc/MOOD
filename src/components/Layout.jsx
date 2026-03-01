@@ -83,8 +83,11 @@ const Layout = () => {
             </span>
         </header>
         <div className="flex-1 overflow-y-auto" key={location.pathname}>
-            <div className="page-enter min-h-full">
+            <div className="page-enter min-h-full pb-8">
                 <Outlet />
+                <div className="text-center py-4 text-[10px] text-[#8A8480] uppercase tracking-widest opacity-50">
+                    Powered by Spotify API
+                </div>
             </div>
         </div>
       </main>
